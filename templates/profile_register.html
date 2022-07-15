@@ -1,0 +1,76 @@
+{% extends 'base.html' %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <title>Register profile</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="user" value="{{request.user.id}}"/>
+        <div>
+          <label for="formFileLg" class="form-label">Surat Saýla</label>
+          {{form.avatar}}
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <label for="formFileLg" class="form-label">Ady</label>
+            {{form.name}}
+          </div>
+          <div class="col">
+            <label for="formFileLg" class="form-label">Familiyasy</label>
+            {{form.surname}}
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <label for="formFileLg" class="form-label">Email</label>
+            {{form.email}}
+          </div>
+          <div class="col">
+            <label for="formFileLg" class="form-label">Telefon nomeri</label>
+            {{form.mobile_number}}
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <label for="formFileLg" class="form-label">Ýurdy</label>
+            {{form.country}}
+          </div>
+          <div class="col">
+            <label for="formFileLg" class="form-label">Welaýat</label>
+            {{form.state_region}}
+          </div>
+        </div>
+        <hr />
+        <button type="submit" class="btn btn-success">Submit</button>
+        <hr />
+      </form>
+      {{form.errors}}
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+
+{% endblock %}
